@@ -1,14 +1,14 @@
 import MenuCard from "../../components/MenuCard";
 import { useState } from "react";
-import MConsulta from "../assets/icones-menu/icone-marcar-consulta.jpeg";
-import VConsulta from "../assets/icones-menu/icone-consulta.jpeg";
-import Localiz from "../assets/icones-menu/Icone-Unidades.png";
-import Sobre from "../assets/icones-menu/icone-sobre.jpeg";
-import Chatbot from "../assets/icones-menu/icone-chatbot.jpeg";
-import Suporte from "../assets/icones-menu/icone-suporte.jpeg";
-import Equipe from "../assets/icones-menu/icone-equipe.jpeg";
-import Faq from "../assets/icones-menu/icone-faq.png";
-import Contato from "../assets/icones-menu/icone-contato.jpeg";
+import MConsulta from "../../assets/icones-menu/icone-marcar-consulta.jpeg";
+import VConsulta from "../../assets/icones-menu/icone-consulta.jpeg";
+import Localiz from "../../assets/icones-menu/Icone-Unidades.png";
+import Sobre from "../../assets/icones-menu/icone-sobre.jpeg";
+import Chatbot from "../../assets/icones-menu/icone-chatbot.jpeg";
+import Suporte from "../../assets/icones-menu/icone-suporte.jpeg";
+import Equipe from "../../assets/icones-menu/icone-equipe.jpeg";
+import Faq from "../../assets/icones-menu/icone-faq.png";
+import Contato from "../../assets/icones-menu/icone-contato.jpeg";
 
 declare global {
   interface Window {
@@ -45,15 +45,15 @@ const MainMenu = () => {
   };
 
   const opcoes = [
-    { img: MConsulta, texto: "Marcar Consulta", path: "" },
+    { img: MConsulta, texto: "Marcar Consulta", path: "/MarcarConsulta" },
     { img: VConsulta, texto: "Ver Consultas", path: "/VerConsultas" },
     { img: Localiz, texto: "Unidades", path: "/Localizacao" },
-    { img: Sobre, texto: "Sobre", path: "/Sobre" },
+    { img: Sobre, texto: "Sobre", path: "/SobreNos" },
     { img: Chatbot, texto: "Assistente Virtual", onClick: toggleChat },
     { img: Suporte, texto: "Suporte ao Site", path: "/SuporteSite" },
     { img: Equipe, texto: "Equipe", path: "/Integrantes" },
     { img: Faq, texto: "Perguntas Frequentes", path: "/Faq" },
-    { img: Contato, texto: "Contato com HC", path: "/Contato" },
+    { img: Contato, texto: "Contato com HC", path: "/ContatoComHC" },
   ];
 
   return (

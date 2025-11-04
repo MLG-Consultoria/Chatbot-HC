@@ -7,10 +7,10 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const links = [
-    { name: "Home", path: "/main" },
+    { name: "Home", path: "/MainMenu" },
     { name: "Integrantes", path: "/integrantes" },
     { name: "FAQ", path: "/faq" },
-    { name: "Contato", path: "/contato" },
+    { name: "Localização", path: "/Localizacao" },
   ];
 
   return (

@@ -1,8 +1,8 @@
-import Giovane from "../assets/Foto_Integrantes/GiovaneS_Integrantes.jpeg"
-import Lucas from "../assets/Foto_Integrantes/LucasV_Integrantes.jpeg"
-import Matheus from "../assets/Foto_Integrantes/MatheusR_Integrantes.jpeg"
-import Github from "../assets/Icones/icone_github.jpeg"
-import Linkedin from "../assets/Icones/icone-linkedin.jpeg"
+import Giovane from "../../assets/Foto_Integrantes/GiovaneS_Integrantes.jpeg"
+import Lucas from "../../assets/Foto_Integrantes/LucasV_Integrantes.jpeg"
+import Matheus from "../../assets/Foto_Integrantes/MatheusR_Integrantes.jpeg"
+import Github from "../../assets/Icones/icone_github.jpeg"
+import Linkedin from "../../assets/Icones/icone-linkedin.jpeg"
 
 const Integrantes = () => {
   return (

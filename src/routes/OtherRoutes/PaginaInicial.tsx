@@ -8,7 +8,7 @@ const PaginaInicial: React.FC = () => {
       <h2 className="mt-2 text-xl text-gray-600">Ao projeto Chatbot - HC</h2>
 
       <Link
-        to="/main"
+        to="/MainMenu"
         className="mt-8 px-8 py-3 bg-blue-500 text-white font-semibold rounded-full shadow-md hover:bg-blue-600 transition-transform transform hover:scale-105 duration-300 ease-in-out">
         Ver Opções
       </Link>
