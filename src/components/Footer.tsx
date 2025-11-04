@@ -1,6 +1,6 @@
-import Email from "../assets/Icones/email.jpeg";
-import Instagram from "../assets/Icones/icone-instagram.jpeg";
-import Linkedin from "../assets/Icones/icone-linkedin.jpeg";
+import { Link } from "react-router-dom";
+import SuporteSiteLogo from "../../assets/icones-menu/icone-suporte.jpeg"
+import Sobre from "../../assets/icones-menu/icone-sobre.png"
 
 const Footer = () => {
   return (
@@ -13,28 +13,22 @@ const Footer = () => {
           Desenvolvido por Giovane Amato, Lucas Vieira e Matheus Roque.
         </p>
 
-        <div className="flex flex-row items-center justify-center gap-6">
-          <a
-            href="#"
-            title="Instagram"
-            className="text-[#44aaff] hover:underline text-sm md:text-base transition-transform duration-300 hover:scale-110 inline w-8 h-8"
+        <div className="flex flex-row items-center justify-center gap-6 bg-blue-400 w-fit h-fit rounded-full mx-auto p-2">
+          <Link
+            to="/SobreNos"
+            title="Sobre Nós"
+            className=" flex flex-col text-sm md:text-base transition-transform duration-300 hover:scale-130 w-10 h-10"
           >
-            <img src={Instagram} alt="Instagram" />
-          </a>
-          <a
-            href="#"
-            title="LinkedIn"
-            className="text-[#44aaff] hover:underline text-sm md:text-base transition-transform duration-300 hover:scale-110 inline w-8 h-8"
+            <img src={Sobre} alt="Sobre nós"/>
+          </Link>
+
+          <Link
+            to="/SuporteSite"
+            title="Suporte do Site"
+            className="hover:underline text-sm md:text-base transition-transform duration-300 hover:scale-130 inline w-10 h-10"
           >
-            <img src={Linkedin} alt="Linkedin" />
-          </a>
-          <a
-            href="mailto:contato@projetoviagem.com"
-            title="E-mail"
-            className="text-[#44aaff] hover:underline text-sm md:text-base transition-transform duration-300 hover:scale-110 inline w-8 h-8"
-          >
-            <img src={Email} alt="email" />
-          </a>
+            <img src={SuporteSiteLogo} alt="SuporteSite"/>
+          </Link>
         </div>
       </div>
     </footer>
