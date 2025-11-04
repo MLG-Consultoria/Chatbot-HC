@@ -47,3 +47,9 @@
 .animate-slideDown {
   animation: slideDown 0.4s ease-out forwards;
 }
+
+/* Esconde o header e o footer apenas na MainHome */
+body.hide-layout header,
+body.hide-layout footer {
+  display: none !important;
+}
