@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import BotaoVoltar from '../components/BotaoVoltar';
-import { faqData, type FaqItemProps } from '../data/FaqData';
+import BotaoVoltar from '../../components/BotaoVoltar';
+import { faqData, type FaqItemProps } from '../../data/FaqData';
 
 const FaqItem: React.FC<FaqItemProps> = ({ question, answer, isOpen, onClick }) => {
   return (

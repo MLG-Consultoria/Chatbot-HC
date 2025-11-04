@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import BotaoVoltar from "../components/BotaoVoltar";
+import BotaoVoltar from "../../components/BotaoVoltar";
 
 const Informacoes = () => {
     return (

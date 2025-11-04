@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import SuporteSiteLogo from "../../assets/icones-menu/icone-suporte.jpeg"
-import Sobre from "../../assets/icones-menu/icone-sobre.png"
+import SuporteSiteLogo from "../assets/icones-menu/icone-suporte.jpeg"
+import Sobre from "../assets/icones-menu/icone-sobre.png"
 
 const Footer = () => {
   return (
