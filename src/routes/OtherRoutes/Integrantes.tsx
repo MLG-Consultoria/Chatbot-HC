@@ -3,6 +3,7 @@ import Lucas from "../../assets/Foto_Integrantes/LucasV_Integrantes.jpeg"
 import Matheus from "../../assets/Foto_Integrantes/MatheusR_Integrantes.jpeg"
 import Github from "../../assets/Icones/icone_github.jpeg"
 import Linkedin from "../../assets/Icones/icone-linkedin.jpeg"
+import BotaoVoltar from "../../components/BotaoVoltar"
 
 const Integrantes = () => {
   return (
@@ -99,7 +100,9 @@ const Integrantes = () => {
           </a>
         </div>
       </div>
-      
+      <div className='flex justify-center'>
+        <BotaoVoltar />
+      </div>
     </div>
   );
 };

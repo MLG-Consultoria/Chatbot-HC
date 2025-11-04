@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { unidades } from '../../data/UnidadesData';
+import BotaoVoltar from "../../components/BotaoVoltar"
 
 const ITENS_POR_PAGINA = 8;
 const MIN_SWIPE_DISTANCE = 50; 
@@ -66,6 +67,7 @@ const Localizacao = () => {
   const unidadesVisiveis = unidades.slice(indiceInicial, indiceInicial + ITENS_POR_PAGINA);
 
   return (
+    <>
     <main className="w-full flex justify-center py-8 md:py-12 px-4 bg-gradient-to-b from-blue-50 to-white z-0">
       <div className="w-full max-w-7xl">
         <h1 className="text-3xl md:text-4xl font-bold text-blue-500 mb-8 text-center sm:text-left">Unidades</h1>
@@ -94,10 +96,10 @@ const Localizacao = () => {
               className={`grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 animate-roll-in-${direcaoAnimacao}`}
               style={{ userSelect: 'none' }} 
             >
-              {unidadesVisiveis.map((unidades) => (
+              {unidadesVisiveis.map((unidade) => (
                 <Link 
-                  key={unidades.id}
-                  to={`/unidades/${unidades.id}`}
+                  key={unidade.id}
+                  to={`/Unidades/${unidade.id}`}
                   className="bg-white rounded-lg shadow-md overflow-hidden group transition-transform duration-300 hover:-translate-y-2 block relative z-0"
                   onClick={(e) => {
                     const distance = Math.abs(startX - currentX);
@@ -105,10 +107,10 @@ const Localizacao = () => {
                   }}
                 >
                   <div className="w-full h-32 sm:h-40 bg-gray-200">
-                    <img src={unidades.img} alt={unidades.nome} className="w-full h-full object-cover" />
+                    <img src={unidade.img} alt={unidade.nome} className="w-full h-full object-cover" />
                   </div>
                   <div className="p-3 sm:p-4 bg-blue-500">
-                    <h3 className="text-white font-semibold text-center text-sm sm:text-base truncate">{unidades.nome}</h3>
+                    <h3 className="text-white font-semibold text-center text-sm sm:text-base truncate">{unidade.nome}</h3>
                   </div>
                 </Link>
               ))}
@@ -125,6 +127,11 @@ const Localizacao = () => {
         </div>
       </div>
     </main>
+  
+  <div className='flex justify-center'>
+    <BotaoVoltar />
+  </div>
+ </>
   );
 };
 
