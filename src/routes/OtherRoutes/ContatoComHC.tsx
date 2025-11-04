@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import Notificacao from '../components/Notificacao';
+import Notificacao from '../../components/Notificacao';
 
 interface FormData {
   name: string;
@@ -14,7 +14,7 @@ interface FormErrors {
   message?: string;
 }
 
-const Contato: React.FC = () => {
+const ContatoComHC: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -146,4 +146,4 @@ const Contato: React.FC = () => {
   );
 };
 
-export default Contato;
+export default ContatoComHC;

@@ -1,4 +1,4 @@
-import MenuCard from "../components/MenuCard";
+import MenuCard from "../../components/MenuCard";
 import { useState } from "react";
 import MConsulta from "../assets/icones-menu/icone-marcar-consulta.jpeg";
 import VConsulta from "../assets/icones-menu/icone-consulta.jpeg";
