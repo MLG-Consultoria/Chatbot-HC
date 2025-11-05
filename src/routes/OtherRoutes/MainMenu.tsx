@@ -1,14 +1,15 @@
-import MenuCard from "../../components/MenuCard";
+import Card from "../../components/MenuCard";
 import { useState } from "react";
 import MConsulta from "../../assets/icones-menu/icone-marcar-consulta.jpeg";
 import VConsulta from "../../assets/icones-menu/icone-consulta.jpeg";
-import Localiz from "../../assets/icones-menu/Icone-Unidades.png";
-import Sobre from "../../assets/icones-menu/icone-sobre.jpeg";
 import Chatbot from "../../assets/icones-menu/icone-chatbot.jpeg";
-import Suporte from "../../assets/icones-menu/icone-suporte.jpeg";
+import Contato from "../../assets/icones-menu/icone-contato.jpeg"
 import Equipe from "../../assets/icones-menu/icone-equipe.jpeg";
 import Faq from "../../assets/icones-menu/icone-faq.png";
-import Contato from "../../assets/icones-menu/icone-contato.jpeg";
+import Libras from "../../assets/icones-menu/icone-linguagem-de-sinais.png";
+import PortalPaciente from "../../assets/icones-menu/portal-paciente-icon.png";
+import Info from "../../assets/icones-menu/informacao-icon.png"
+import { toggleVLibras } from "../../components/VLibras";
 
 declare global {
   interface Window {
@@ -16,11 +17,12 @@ declare global {
   }
 }
 
-const MainMenu = () => {
-  const [chatAberto, setChatAberto] = useState(false);
+const Main = () => {
+   const [chatAberto, setChatAberto] = useState(false);
 
   const toggleChat = () => {
     if (!window.watsonChatInstance) {
+      // Se ainda não carregou, tenta novamente
       const interval = setInterval(() => {
         if (window.watsonChatInstance) {
           if (chatAberto) {
@@ -47,13 +49,13 @@ const MainMenu = () => {
   const opcoes = [
     { img: MConsulta, texto: "Marcar Consulta", path: "/MarcarConsulta" },
     { img: VConsulta, texto: "Ver Consultas", path: "/VerConsultas" },
-    { img: Localiz, texto: "Unidades", path: "/Localizacao" },
-    { img: Sobre, texto: "Sobre", path: "/SobreNos" },
+    { img: PortalPaciente, texto: "Portal do Paciente", path: "/PortalPaciente" },
+    { img: Libras, texto: "Modo Libras", onClick: toggleVLibras },
     { img: Chatbot, texto: "Assistente Virtual", onClick: toggleChat },
-    { img: Suporte, texto: "Suporte ao Site", path: "/SuporteSite" },
-    { img: Equipe, texto: "Equipe", path: "/Integrantes" },
-    { img: Faq, texto: "Perguntas Frequentes", path: "/Faq" },
     { img: Contato, texto: "Contato com HC", path: "/ContatoComHC" },
+    { img: Info, texto: "Informações Importantes", path: "/Informacoes" },
+    { img: Equipe, texto: "Equipe", path: "/integrantes" },
+    { img: Faq, texto: "Perguntas Frequentes", path: "/faq" },
   ];
 
   return (
@@ -73,13 +75,13 @@ const MainMenu = () => {
               }
             >
               
-              <MenuCard
-                img={op.img} 
+              <Card
+                img={op.img}
                 texto={op.texto}
                 path={op.path}
                 onClick={op.onClick}
                 className="h-full w-full"
-              />
+                ariaLabel={""}              />
             </div>
           );
         })}
@@ -89,4 +91,4 @@ const MainMenu = () => {
   );
 };
 
-export default MainMenu;
+export default Main;
