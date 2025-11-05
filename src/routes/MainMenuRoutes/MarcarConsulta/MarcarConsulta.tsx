@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import type { Consulta } from './type'; 
-import BotaoVoltar from "../../components/BotaoVoltar"
+import type { Consulta } from '../../MainMenuRoutes/MarcarConsulta/types'; 
+import BotaoVoltar from "../../../components/BotaoVoltar"
 
 interface MarcarConsultaProps {
   onMarcarConsulta: (novaConsulta: Omit<Consulta, 'id'>) => void;

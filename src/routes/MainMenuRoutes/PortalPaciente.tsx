@@ -1,7 +1,7 @@
-import BotaoVoltar from "../components/BotaoVoltar"
-import Receita from "../assets/Outros/receitas.jpg"
-import Resultados from "../assets/Outros/resultados.jpg"
-import Lab from "../assets/Outros/Imagem-lab.jpg"
+import BotaoVoltar from "../../components/BotaoVoltar"
+import Receita from "../../assets/Outros/receitas.jpg"
+import Resultados from "../../assets/Outros/resultados.jpg"
+import Lab from "../../assets/Outros/Imagem-lab.jpg"
 
 const PortalPaciente = () => {
   return (
