@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getConsultasAPI } from "../../services/consultaService";
 import type { ConsultaResponse } from "../../services/consultaService";
 import BotaoVoltar from "../../components/BotaoVoltar";
+import LoadingCircle from "../../components/LoadingCircle";
 
 const VerConsultas: React.FC = () => {
   const [consultas, setConsultas] = useState<ConsultaResponse[]>([]);
@@ -61,14 +62,25 @@ const VerConsultas: React.FC = () => {
 
         {/* Estado de carregamento */}
         {loading && (
-          <p className="text-center text-gray-500 text-lg">
-            ⏳ Carregando consultas...
+          <p className="text-center text-gray-500 text-lg flex items-center justify-center gap-2 flex-col">
+            <LoadingCircle /> Carregando consultas...
           </p>
         )}
 
         {/* Estado de erro */}
         {erro && (
-          <p className="text-center text-red-500 text-lg">{erro}</p>
+          <div className="text-center mt-20">
+            <p className="text-center text-red-500 text-lg mb-3">{erro}</p>
+            <p className="text-gray-600">Desculpe, nenhuma consulta foi encontrada. Tente recarregar a página</p>
+            <p className="text-gray-600">Caso precise de ajuda, entre em contato com o suporte.</p>
+            <a
+              href="/SuporteSite"
+              className="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+              role="button"
+            >
+              Acessar Suporte
+            </a>
+          </div>
         )}
 
         {/* Nenhum resultado */}
