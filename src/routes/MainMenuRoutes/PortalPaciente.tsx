@@ -2,6 +2,7 @@ import BotaoVoltar from "../../components/BotaoVoltar"
 import Receita from "../../assets/Outros/receitas.jpg"
 import Resultados from "../../assets/Outros/resultados.jpg"
 import Lab from "../../assets/Outros/Imagem-lab.jpg"
+import ExternalLink from "../../components/ExternalLink"
 
 const PortalPaciente = () => {
   return (
@@ -20,11 +21,12 @@ const PortalPaciente = () => {
           >
             <h1 className="text-2xl font-semibold mt-3 mb-3">Meus Resultados</h1>
             <p className="mb-4">Consulte seus resultados de exames aqui.</p>
-            <button className="w-full h-12 rounded-lg border border-blue-300 duration-300 cursor-pointer bg-blue-500 text-white font-bold text-lg hover:bg-blue-700 hover:scale-105 hover:transform ">
-              <a href="https://portaldopaciente.hc.fm.usp.br/resultados">
-                Ver Resultados
-              </a>
-            </button>
+            <ExternalLink 
+                href="https://portaldopaciente.hc.fm.usp.br/resultados" 
+                className="w-full h-12 flex items-center justify-center rounded-lg border border-blue-300 duration-300 cursor-pointer bg-blue-500 text-white font-bold text-lg hover:bg-blue-700 hover:scale-105 transform"
+                >
+                Ver Resultados
+            </ExternalLink>
           </div>
 
           <div 
@@ -33,11 +35,12 @@ const PortalPaciente = () => {
           >
             <h1 className="text-2xl font-semibold mt-3 mb-3">Acessar Portal</h1>
             <p className="mb-4">Entre no seu portal do HC no site oficial.</p>
-            <button className="w-full h-12 rounded-lg border border-blue-300 duration-300 cursor-pointer bg-blue-500 text-white font-bold text-lg hover:bg-blue-700 hover:scale-105 hover:transform">
-              <a href="https://portaldopaciente.hc.fm.usp.br/agendamentos">
-                Acessar Portal
-              </a>
-            </button>
+              <ExternalLink 
+              href="https://portaldopaciente.hc.fm.usp.br/agendamentos"
+              className="w-full h-12 flex items-center justify-center rounded-lg border border-blue-300 duration-300 cursor-pointer bg-blue-500 text-white font-bold text-lg hover:bg-blue-700 hover:scale-105 transform"
+            >
+              Acessar Portal
+            </ExternalLink>
           </div>
 
           <div 
@@ -46,11 +49,12 @@ const PortalPaciente = () => {
           >
             <h1 className="text-2xl font-semibold mt-3 mb-3">Minhas Receitas</h1>
             <p className="mb-4 z">Veja e renove suas receitas médicas.</p>
-            <button className="w-full h-12 rounded-lg border border-blue-300 duration-300 cursor-pointer bg-blue-500 text-white font-bold text-lg hover:bg-blue-700 hover:scale-105 hover:transform">
-              <a href="https://portaldopaciente.hc.fm.usp.br/receitas">
-                Ver Receitas
-              </a>
-            </button>
+            <ExternalLink 
+            href="https://portaldopaciente.hc.fm.usp.br/receitas"
+            className="w-full h-12 flex items-center justify-center rounded-lg border border-blue-300 duration-300 cursor-pointer bg-blue-500 text-white font-bold text-lg hover:bg-blue-700 hover:scale-105 transform"
+            >
+            Ver Receitas
+            </ExternalLink>
           </div>
         </div>
       </article>
