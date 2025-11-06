@@ -1,16 +1,20 @@
-import { Link, type LinkProps } from 'react-router-dom';
+import React from 'react';
 
-interface ExternalLinkProps extends Omit<LinkProps, 'to'> {
-  href: string; 
+interface ExternalLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  href: string;
+  onOpenModal: (url: string) => void; 
 }
 
-const ExternalLink: React.FC<ExternalLinkProps> = ({ href, children, ...props }) => {
-  const encodedUrl = encodeURIComponent(href);
-  
+const ExternalLink: React.FC<ExternalLinkProps> = ({ href, children, onOpenModal, ...props }) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    onOpenModal(href); 
+  };
+
   return (
-    <Link to={`/ExitPage?url=${encodedUrl}`} {...props}>
+    <a href={href} onClick={handleClick} {...props}>
       {children}
-    </Link>
+    </a>
   );
 };
 
