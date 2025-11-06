@@ -1,5 +1,3 @@
-// NOVO: Importar 'useState'
-import { useState } from "react"; 
 import Header from "./components/Header";
 import Integrantes from "./routes/OtherRoutes/Integrantes";
 import ContatoComHC from "./routes/OtherRoutes/ContatoComHC";
@@ -19,22 +17,8 @@ import { Routes, Route } from "react-router-dom";
 import ScrollTopPage from "./components/ScrollTopPage"; 
 import VLibras from "./components/VLibras";
 import Informacoes from "./routes/MainMenuRoutes/Informacoes";
-import type { Consulta } from "./routes/MainMenuRoutes/MarcarConsulta/types";
 
 function App() {
-  const [consultas, setConsultas] = useState<Consulta[]>([]);
-  const handleMarcarConsulta = (novaConsulta: Omit<Consulta, 'id'>) => {
-    const consultaComId: Consulta = {
-      ...novaConsulta,
-      id: Date.now().toString()
-    };
-
-    setConsultas(consultasAnteriores => [
-      ...consultasAnteriores,
-      consultaComId
-    ]);
-  };
-
   return (
     <>
       <div className="flex flex-col min-h-screen">
@@ -50,8 +34,8 @@ function App() {
             <Route path="/ContatoComHC" element={<ContatoComHC />} />
             <Route path="/SobreNos" element={<Sobre />} />
             <Route path="/PortalPaciente" element={<PortalPaciente />} />
-            <Route path="/VerConsultas" element={<VerConsultas consultas={consultas} />} /> 
-            <Route path="/MarcarConsulta" element={<MarcarConsulta onMarcarConsulta={handleMarcarConsulta} />} />
+            <Route path="/VerConsultas" element={<VerConsultas />} /> 
+            <Route path="/MarcarConsulta" element={<MarcarConsulta />} />
             <Route path="/Localizacao" element={<Localizacao />} />
             <Route path="/Unidades/:unidadeId" element={<UnidadeDetalhe />} />
             <Route path="/SuporteSite" element={<SuporteSite />} />
@@ -64,4 +48,5 @@ function App() {
     </>
   );
 }
+
 export default App;

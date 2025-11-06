@@ -1,0 +1,1 @@
+export type { ConsultaDTO, ConsultaResponse } from "../services/consultaService";
