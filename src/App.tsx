@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Integrantes from "./routes/OtherRoutes/Integrantes";
 import ContatoComHC from "./routes/OtherRoutes/ContatoComHC";
-import MenuPrincipal from "./routes/OtherRoutes/MainMenu";
+import MainMenu from "./routes/OtherRoutes/MainMenu";
 import Faq from "./routes/MainMenuRoutes/Faq";
 import Footer from "./components/Footer";
 import Sobre from "./routes/OtherRoutes/SobreNos";
@@ -12,7 +12,7 @@ import MarcarConsulta from "./routes/MainMenuRoutes/MarcarConsulta/MarcarConsult
 import Localizacao from "./routes/OtherRoutes/Localizacao";
 import UnidadeDetalhe from "./routes/OtherRoutes/unidadeDetalhes";
 import SuporteSite from "./routes/MainMenuRoutes/SuporteSite";
-import AtivarAcessiblidade from "./routes/MainMenuRoutes/AtivarAcessibilidade";
+import ExitPage from "./routes/OtherRoutes/ExitPage";
 import { Routes, Route } from "react-router-dom";
 import ScrollTopPage from "./components/ScrollTopPage"; 
 import VLibras from "./components/VLibras";
@@ -28,7 +28,7 @@ function App() {
         <main className="flex-grow bg-gradient-to-b from-blue-50 to-white">
           <Routes>
             <Route path="/" element={<MainHome />} />
-            <Route path="/MenuPrincipal" element={<MenuPrincipal />} />
+            <Route path="/MainMenu" element={<MainMenu />} />
             <Route path="/Integrantes" element={<Integrantes />} />
             <Route path="/faq" element={<Faq />} />
             <Route path="/ContatoComHC" element={<ContatoComHC />} />
@@ -39,8 +39,8 @@ function App() {
             <Route path="/Localizacao" element={<Localizacao />} />
             <Route path="/Unidades/:unidadeId" element={<UnidadeDetalhe />} />
             <Route path="/SuporteSite" element={<SuporteSite />} />
-            <Route path="/AtivarAcessiblidade" element={<AtivarAcessiblidade />} />
             <Route path="/Informacoes" element={<Informacoes />} />
+            <Route path="/ExitPage" element={<ExitPage />} />
           </Routes>
         </main>
         <Footer />
