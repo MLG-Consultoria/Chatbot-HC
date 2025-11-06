@@ -41,7 +41,7 @@ const MainHome: React.FC = () => {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      navigate('/MenuPrincipal');
+      navigate('/MainMenu');
     }
   };
 

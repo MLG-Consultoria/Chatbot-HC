@@ -4,7 +4,11 @@ import Resultados from "../../assets/Outros/resultados.jpg"
 import Lab from "../../assets/Outros/Imagem-lab.jpg"
 import ExternalLink from "../../components/ExternalLink"
 
-const PortalPaciente = () => {
+interface PortalPacienteProps {
+  onOpenExitModal: (url: string) => void;
+}
+
+const PortalPaciente: React.FC<PortalPacienteProps> = ({ onOpenExitModal }) => {
   return (
     <main className="flex flex-col items-center p-4">
       <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-2xl border border-blue-300 text-center">
@@ -23,6 +27,7 @@ const PortalPaciente = () => {
             <p className="mb-4">Consulte seus resultados de exames aqui.</p>
             <ExternalLink 
                 href="https://portaldopaciente.hc.fm.usp.br/resultados" 
+                onOpenModal={onOpenExitModal}
                 className="w-full h-12 flex items-center justify-center rounded-lg border border-blue-300 duration-300 cursor-pointer bg-blue-500 text-white font-bold text-lg hover:bg-blue-700 hover:scale-105 transform"
                 >
                 Ver Resultados
@@ -35,9 +40,10 @@ const PortalPaciente = () => {
           >
             <h1 className="text-2xl font-semibold mt-3 mb-3">Acessar Portal</h1>
             <p className="mb-4">Entre no seu portal do HC no site oficial.</p>
-              <ExternalLink 
-              href="https://portaldopaciente.hc.fm.usp.br/agendamentos"
-              className="w-full h-12 flex items-center justify-center rounded-lg border border-blue-300 duration-300 cursor-pointer bg-blue-500 text-white font-bold text-lg hover:bg-blue-700 hover:scale-105 transform"
+            <ExternalLink 
+                href="https://portaldopaciente.hc.fm.usp.br/agendamentos"
+                onOpenModal={onOpenExitModal}
+                className="w-full h-12 flex items-center justify-center rounded-lg border border-blue-300 duration-300 cursor-pointer bg-blue-500 text-white font-bold text-lg hover:bg-blue-700 hover:scale-105 transform"
             >
               Acessar Portal
             </ExternalLink>
@@ -51,6 +57,7 @@ const PortalPaciente = () => {
             <p className="mb-4 z">Veja e renove suas receitas médicas.</p>
             <ExternalLink 
             href="https://portaldopaciente.hc.fm.usp.br/receitas"
+            onOpenModal={onOpenExitModal}
             className="w-full h-12 flex items-center justify-center rounded-lg border border-blue-300 duration-300 cursor-pointer bg-blue-500 text-white font-bold text-lg hover:bg-blue-700 hover:scale-105 transform"
             >
             Ver Receitas

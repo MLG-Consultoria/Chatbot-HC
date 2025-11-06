@@ -6,19 +6,19 @@ import BotaoVoltar from "../../components/BotaoVoltar";
 const SuporteSite: React.FC = () => {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
-  const [mensagem, setMensagem] = useState("");
+  const [feedback, setFeedback] = useState("");
   const [showNotification, setShowNotification] = useState(false);
 
   const navigate = useNavigate(); 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ nome, email, mensagem });
+    console.log({ nome, email, feedback });
 
     setShowNotification(true);
     setNome("");
     setEmail("");
-    setMensagem("");
+    setFeedback("");
 
     setTimeout(() => {
       setShowNotification(false);
@@ -28,17 +28,17 @@ const SuporteSite: React.FC = () => {
 
   return (
     <>
-      <div className="flex-grow flex items-center justify-center max-h-screen h-200 -mt-10 sm:-mt-27">
+      <div className="flex-grow flex items-center justify-center max-h-screen h-200 -mt-10 ">
         {showNotification && (
           <Notificacao onClose={() => setShowNotification(false)} />
         )}
 
         <div className="w-full md:max-w-8/12 bg-white rounded-2xl shadow-lg p-6 border-3 border-blue-300 sm:max-w-screen">
           <h1 className="text-center text-3xl font-semibold text-gray-800 ">
-            Encontrou algum problema em nosso site?
+            Avalie-nos
           </h1>
           <p className="text-center text-2xl text-gray-700 mb-6 ">
-            Por favor nos conte sobre
+            Quer nos dar um feedback de nosso site, escreva seu comentario e deixe sua nota para sabermos sua opinião e o que podemos mudar
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -59,7 +59,7 @@ const SuporteSite: React.FC = () => {
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email
+                E-mail
               </label>
               <input
                 id="email"
@@ -73,20 +73,43 @@ const SuporteSite: React.FC = () => {
             </div>
 
             <div>
-              <label htmlFor="mensagem" className="block text-sm font-medium text-gray-700">
-                Descreva seu problema
+              <label htmlFor="feedback" className="block text-sm font-medium text-gray-700">
+                Escreva seu feedback
               </label>
               <textarea
-                id="mensagem"
+                id="feedback"
                 rows={4}
-                value={mensagem}
-                onChange={(e) => setMensagem(e.target.value)}
+                value={feedback}
+                onChange={(e) => setFeedback(e.target.value)}
                 className="mt-1 w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Digite sua mensagem"
+                placeholder="Digite seu feedback"
                 required
               ></textarea>
             </div>
 
+            <div className="flex justify-center gap-6 mt-6">
+              <label className="cursor-pointer">
+                <input type="radio" className="peer hidden" name="satisfacao" value="medio" />
+                <span className="text-3xl w-14 h-14 flex items-center justify-center peer-checked:scale-125 peer-checked:text-white rounded-full bg-blue-200 peer-checked:bg-blue-400 transition-all duration-300">
+                  😞
+                </span>
+              </label>
+
+              <label className="cursor-pointer">
+                <input type="radio" className="peer hidden" name="satisfacao" value="medio" />
+                <span className="text-3xl w-14 h-14 flex items-center justify-center peer-checked:scale-125 peer-checked:text-white rounded-full bg-blue-200 peer-checked:bg-blue-400 transition-all duration-300">
+                  😐
+                </span>
+              </label>
+
+              <label className="cursor-pointer">
+                <input type="radio" className="peer hidden" name="satisfacao" value="medio" />
+                <span className="text-3xl w-14 h-14 flex items-center justify-center peer-checked:scale-125 peer-checked:text-white rounded-full bg-blue-200 peer-checked:bg-blue-400 transition-all duration-300">
+                  😀
+                </span>
+              </label>
+
+            </div>
             <button
               type="submit"
               className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300"

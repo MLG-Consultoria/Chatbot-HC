@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import BotaoVoltar from "../../components/BotaoVoltar";
 import ExternalLink from "../../components/ExternalLink";
 
-const Informacoes = () => {
+interface InformacoesProps {
+  onOpenExitModal: (url: string) => void; 
+}
+
+const Informacoes: React.FC<InformacoesProps> = ({ onOpenExitModal }) => {
   const [isTablet, setIsTablet] = useState(false);
 
   useEffect(() => {
@@ -44,6 +48,7 @@ const Informacoes = () => {
           <p className="text-xl mt-5">Para mais informações</p>
           <ExternalLink
             href="https://www.hc.fm.usp.br/hc/paciente/informacoes-uteis"
+            onOpenModal={onOpenExitModal}
             className="text-white text-center w-full sm:w-4/5 h-10 mt-4 bg-blue-600 flex justify-center items-center rounded-full shadow-2xl hover:scale-105 transition-transform duration-300 cursor-pointer"
           >
             Ver Mais Informações
