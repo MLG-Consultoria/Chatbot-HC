@@ -3,6 +3,7 @@ import { getConsultasAPI } from "../../services/consultaService";
 import type { ConsultaResponse } from "../../services/consultaService";
 import BotaoVoltar from "../../components/BotaoVoltar";
 import LoadingCircle from "../../components/LoadingCircle";
+import { FaCalendarAlt, FaCalendarTimes } from 'react-icons/fa';
 
 const VerConsultas: React.FC = () => {
   const [consultas, setConsultas] = useState<ConsultaResponse[]>([]);
@@ -13,7 +14,6 @@ const VerConsultas: React.FC = () => {
     async function carregarConsultas() {
       try {
         const dados = await getConsultasAPI();
-        // Ordena por data da mais recente para a mais antiga
         const ordenadas = dados.sort(
           (a: ConsultaResponse, b: ConsultaResponse) =>
             new Date(b.data_hora_consulta).getTime() -
@@ -135,6 +135,15 @@ const VerConsultas: React.FC = () => {
                   </a>
                 </p>
               )}
+                <div className="flex flex-row gap-10 mt-4 items-center justify-center ">
+                  <button aria-label="Remarcar consulta" className="ml-4">
+                    <FaCalendarAlt size={30} />
+                  </button>
+
+                  <button aria-label="Desmarcar consulta" className="">
+                    <FaCalendarTimes size={30} />
+                  </button>
+                </div>
             </div>
           ))}
         </div>
