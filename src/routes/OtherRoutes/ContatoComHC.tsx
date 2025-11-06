@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import Notificacao from '../../components/Notificacao';
-import BotaoVoltar from "../../components/BotaoVoltar"
+import BotaoVoltar from "../../components/BotaoVoltar";
+import { enviarContatoAPI } from "../../services/contatoService";
 
 interface FormData {
   name: string;
@@ -24,48 +25,51 @@ const ContatoComHC: React.FC = () => {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [showNotification, setShowNotification] = useState(false);
-
   const navigate = useNavigate();
 
   const validate = (): FormErrors => {
     const newErrors: FormErrors = {};
-    if (formData.name.trim().length < 3) {
+    if (formData.name.trim().length < 3)
       newErrors.name = 'O nome deve ter pelo menos 3 caracteres.';
-    }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
+    if (!emailRegex.test(formData.email))
       newErrors.email = 'Por favor, insira um email válido.';
-    }
-    if (formData.message.trim().length < 10) {
+    if (formData.message.trim().length < 10)
       newErrors.message = 'A mensagem deve ter pelo menos 10 caracteres.';
-    }
     return newErrors;
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  // 🔹 Tornar função async pois usa await
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const validationErrors = validate();
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      console.log('Formulário enviado com sucesso:', formData);
-      setShowNotification(true);
-      setFormData({ name: '', email: '', message: '' });
+      try {
+        await enviarContatoAPI({
+          nome: formData.name,
+          email: formData.email,
+          mensagem: formData.message,
+          formulario_origem: "H", // ✅ Hospital
+        });
 
-      setTimeout(() => {
-        setShowNotification(false);
-        navigate('/MenuPrincipal'); 
-      }, 3000);
-    } else {
-      console.log('Formulário com erros de validação.');
+        setShowNotification(true);
+        setFormData({ name: '', email: '', message: '' });
+
+        setTimeout(() => {
+          setShowNotification(false);
+          navigate('/MenuPrincipal');
+        }, 3000);
+      } catch (error: any) {
+        console.error("Erro ao enviar contato:", error.message);
+        alert("❌ Erro ao enviar o contato. Tente novamente.");
+      }
     }
   };
 
