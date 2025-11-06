@@ -43,47 +43,47 @@ async function wakeServer(): Promise<void> {
 // ===========================
 // 📤 POST: Agendar Consulta
 // ===========================
-export async function agendarConsultaAPI(dados: ConsultaDTO): Promise<ConsultaResponse> {
+export async function agendarConsultaAPI(
+  dados: ConsultaDTO
+): Promise<ConsultaResponse> {
   await wakeServer();
 
-  try {
-    const response = await fetch(`${API_BASE_URL}/consultas/agendar`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(dados),
-    });
+  const response = await fetch(`${API_BASE_URL}/consultas/agendar`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(dados),
+  });
 
-    if (!response.ok) {
-      const erro = await response.text();
-      throw new Error(`Erro ao agendar consulta: ${erro}`);
-    }
-
-    return await response.json();
-  } catch (error: any) {
-    if (error.message.includes("Failed to fetch")) {
-      throw new Error("⚠️ O servidor pode estar iniciando... aguarde alguns segundos e tente novamente.");
-    }
-    throw error;
+  if (!response.ok) {
+    const erro = await response.text();
+    throw new Error(`Erro ao agendar consulta: ${erro}`);
   }
+
+  return await response.json();
 }
 
 // ===========================
 // 📥 GET: Listar Consultas
 // ===========================
-export async function getConsultasAPI() {
+export async function getConsultasAPI(): Promise<ConsultaResponse[]> {
   await wakeServer();
 
   const response = await fetch(`${API_BASE_URL}/consultas`);
   if (!response.ok) {
-    throw new Error(`Erro ${response.status}: não foi possível carregar as consultas.`);
+    throw new Error(
+      `Erro ${response.status}: não foi possível carregar as consultas.`
+    );
   }
-  return response.json();
+  return await response.json();
 }
 
 // ===========================
 // ✏️ PUT: Reagendar Consulta
 // ===========================
-export async function atualizarConsultaAPI(id: number, dados: Partial<ConsultaDTO>) {
+export async function atualizarConsultaAPI(
+  id: number,
+  dados: Partial<ConsultaDTO>
+): Promise<string> {
   await wakeServer();
 
   const response = await fetch(`${API_BASE_URL}/consultas/${id}`, {
@@ -93,16 +93,17 @@ export async function atualizarConsultaAPI(id: number, dados: Partial<ConsultaDT
   });
 
   if (!response.ok) {
-    throw new Error(`Erro ${response.status}: não foi possível atualizar a consulta.`);
+    const erro = await response.text();
+    throw new Error(`Erro ao atualizar consulta: ${erro}`);
   }
 
-  return response.text();
+  return await response.text();
 }
 
 // ===========================
 // ❌ DELETE: Cancelar Consulta
 // ===========================
-export async function deletarConsultaAPI(id: number) {
+export async function deletarConsultaAPI(id: number): Promise<string> {
   await wakeServer();
 
   const response = await fetch(`${API_BASE_URL}/consultas/${id}`, {
@@ -112,5 +113,15 @@ export async function deletarConsultaAPI(id: number) {
   if (response.status === 204) return "Consulta excluída com sucesso!";
   if (response.status === 404) throw new Error("Consulta não encontrada.");
 
-  throw new Error(`Erro ${response.status}: não foi possível excluir a consulta.`);
+  throw new Error(
+    `Erro ${response.status}: não foi possível excluir a consulta.`
+  );
 }
+
+// ✅ Exporta todas as funções explicitamente (garante visibilidade)
+export default {
+  agendarConsultaAPI,
+  getConsultasAPI,
+  atualizarConsultaAPI,
+  deletarConsultaAPI,
+};
