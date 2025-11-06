@@ -17,7 +17,7 @@ declare global {
   }
 }
 
-const Main = () => {
+const MainMenu = () => {
    const [chatAberto, setChatAberto] = useState(false);
 
   const toggleChat = () => {
@@ -91,4 +91,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainMenu;
