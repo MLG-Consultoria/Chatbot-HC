@@ -18,7 +18,7 @@ import ScrollTopPage from "./components/ScrollTopPage";
 import VLibras from "./components/VLibras";
 import Informacoes from "./routes/MainMenuRoutes/Informacoes";
 import ExitModal from './components/ExitModal';
-
+import IntegrantesDetalhes from "./routes/OtherRoutes/IntegrantesDetalhes";
 
 function App() {
 
@@ -30,7 +30,6 @@ function App() {
     setIsExitModalOpen(true);
   };
 
-  // FUNÇÃO PARA FECHAR O MODAL
   const closeExitModal = () => {
     setIsExitModalOpen(false);
     setCurrentExternalUrl(null);
@@ -58,6 +57,7 @@ function App() {
             <Route path="/Unidades/:unidadeId" element={<UnidadeDetalhe />} />
             <Route path="/SuporteSite" element={<SuporteSite />} />
             <Route path="/Informacoes" element={<Informacoes onOpenExitModal={openExitModal} />} />
+            <Route path="/Integrantes/:nome" element={<IntegrantesDetalhes />} />
           </Routes>
         </main>
         <Footer />

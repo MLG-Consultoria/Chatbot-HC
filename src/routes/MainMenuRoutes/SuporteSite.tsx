@@ -42,12 +42,12 @@ const SuporteSite: React.FC = () => {
 
   return (
     <>
-      <div className="flex-grow flex items-center justify-center max-h-screen h-200 -mt-10 ">
+      <div className="flex-grow flex items-center justify-center max-h-screen h-200 mt- sm:mt-0">
         {showNotification && (
           <Notificacao onClose={() => setShowNotification(false)} />
         )}
 
-        <div className="w-full md:max-w-8/12 bg-white rounded-2xl shadow-lg p-6 border-3 border-blue-300 sm:max-w-screen">
+        <div className="w-full md:max-w-8/12 bg-white rounded-2xl shadow-lg p-6 border-3 border-blue-300 sm:max-w-screen mt-10 mb-10">
           <h1 className="text-center text-3xl font-semibold text-gray-800 ">
             Avalie-nos
           </h1>
@@ -133,7 +133,7 @@ const SuporteSite: React.FC = () => {
           </form>
         </div>
       </div>
-      <div className='flex justify-center -mt-15 sm:-mt-25'>
+      <div className='flex justify-center sm:-mt-15'>
         <BotaoVoltar />
       </div>
     </>
