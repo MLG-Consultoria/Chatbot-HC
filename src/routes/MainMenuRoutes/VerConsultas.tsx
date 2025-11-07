@@ -171,6 +171,8 @@ const confirmarReagendamento = async () => {
         {erro && (
           <div className="text-center mt-20">
             <p className="text-center text-red-500 text-lg mb-3">{erro}</p>
+            <p className="text-gray-600">Desculpe, nenhuma consulta foi encontrada. Tente recarregar a página</p>
+            <p className="text-gray-600">Caso precise de ajuda, entre em contato com o suporte.</p>
             <a
               href="/SuporteSite"
               className="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
