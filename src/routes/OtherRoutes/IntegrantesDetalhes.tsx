@@ -29,7 +29,7 @@ const IntegrantesDetalhes = () => {
             <img 
               src={integrante.imgSrc} 
               alt={`Foto de ${integrante.nome}`} 
-              className="w-65 h-60 md:w-72 md:h-66 object-cover" 
+              className="w-60 h-55 md:w-72 md:h-66 object-cover" 
             />
           </div>
 
@@ -76,7 +76,7 @@ const IntegrantesDetalhes = () => {
                     </span>
                   </p>
 
-              <div className="flex items-center space-x-20 sm:space-x-25">
+              <div className="flex items-center space-x-20 sm:space-x-35">
                 <a 
                   href={integrante.githubUrl} 
                   target="_blank" 
