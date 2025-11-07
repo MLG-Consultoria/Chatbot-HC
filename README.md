@@ -72,11 +72,11 @@
 ###
 
 <p align="center">
-  Link Youtube: <a href="URL_DO_YOUTUBE">Video Pitch</a>
+  Link Youtube: <a href="https://youtu.be/-XhaYasfouw">Video Pitch</a>
   <br>
   Link Github: <a href="https://github.com/MLG-Consultoria/Chatbot-HC">Chatbot-HC</a>
   <br>
-  Link do site: <a href="https://Chatbot-HC.vercel.app/">Chatbot-HC.vercel.app</a>
+  Link do site: <a href="https://front-challenge-2-semestre.vercel.app/">Chatbot-HC.vercel.app</a>
 </p>
 
 ###
